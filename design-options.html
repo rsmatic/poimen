@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>POIMEN — Design Options</title>
+  <style>
+    :root { --bg: #111; --card: #1a1a1a; --line: #2c2c2c; --text: #eee; --muted: #999; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font: 15px/1.5 system-ui, sans-serif; padding: 2rem clamp(1rem, 3vw, 2.5rem) 4rem; }
+    header { max-width: 1400px; margin: 0 auto 2rem; }
+    h1 { font-size: 1.8rem; margin-bottom: .3rem; }
+    header p { color: var(--muted); }
+    .options { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 620px), 1fr)); gap: 1.5rem; }
+    .option { background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+    .frame { position: relative; aspect-ratio: 1300 / 820; overflow: hidden; border-bottom: 1px solid var(--line); background: #000; }
+    .frame iframe { position: absolute; top: 0; left: 0; width: 1300px; height: 820px; border: 0; transform-origin: 0 0; }
+    .info { padding: 1rem 1.25rem 1.25rem; display: flex; gap: 1rem; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; }
+    .num { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--text); color: var(--bg); font-weight: 700; margin-right: .5rem; }
+    h2 { font-size: 1.15rem; display: flex; align-items: center; }
+    .info p { color: var(--muted); margin-top: .35rem; max-width: 34rem; }
+    .swatches { display: flex; gap: 4px; margin-top: .6rem; }
+    .swatches i { width: 22px; height: 22px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .15); }
+    a.open { color: var(--text); border: 1px solid var(--line); border-radius: 999px; padding: .45rem 1rem; text-decoration: none; font-size: .85rem; white-space: nowrap; }
+    a.open:hover { border-color: var(--text); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>POIMEN — pick a design</h1>
+    <p>Each preview is the real, working site. Scroll inside a preview, or open it full size. Tell Claude the number you like.</p>
+  </header>
+
+  <div class="options">
+    <article class="option">
+      <div class="frame"><iframe src="index.html" title="Option 1 preview" loading="lazy"></iframe></div>
+      <div class="info">
+        <div>
+          <h2><span class="num">1</span>Midnight Gold</h2>
+          <p>The current design. Dark and cinematic, with gold highlights and tall condensed headlines. Modern worship-band feel.</p>
+          <div class="swatches"><i style="background:#0b0b0c"></i><i style="background:#d9b56c"></i><i style="background:#ececec"></i></div>
+        </div>
+        <a class="open" href="index.html" target="_blank">Open full size ↗</a>
+      </div>
+    </article>
+
+    <article class="option">
+      <div class="frame"><iframe src="index.html?theme=grunge" title="Option 2 preview" loading="lazy"></iframe></div>
+      <div class="info">
+        <div>
+          <h2><span class="num">2</span>Grunge Rock</h2>
+          <p>Raw black and white with blood-red accents, film grain, square edges and heavy all-caps type. Loud, energetic, rock-concert poster.</p>
+          <div class="swatches"><i style="background:#0a0a0a"></i><i style="background:#e0312b"></i><i style="background:#f4f4f4"></i></div>
+        </div>
+        <a class="open" href="index.html?theme=grunge" target="_blank">Open full size ↗</a>
+      </div>
+    </article>
+
+    <article class="option">
+      <div class="frame"><iframe src="index.html?theme=sanctuary" title="Option 3 preview" loading="lazy"></iframe></div>
+      <div class="info">
+        <div>
+          <h2><span class="num">3</span>Sanctuary</h2>
+          <p>Light cream and navy with bronze accents and an elegant serif. Calm, reverent and welcoming, and the most "church-friendly" of the five.</p>
+          <div class="swatches"><i style="background:#f7f2e8"></i><i style="background:#9a6b2f"></i><i style="background:#1f2a3a"></i></div>
+        </div>
+        <a class="open" href="index.html?theme=sanctuary" target="_blank">Open full size ↗</a>
+      </div>
+    </article>
+
+    <article class="option">
+      <div class="frame"><iframe src="index.html?theme=neon" title="Option 4 preview" loading="lazy"></iframe></div>
+      <div class="info">
+        <div>
+          <h2><span class="num">4</span>Neon Stage</h2>
+          <p>Deep purple night with cyan-to-magenta glow, like concert lighting. Bold wide type. Youthful, festival and youth-camp energy.</p>
+          <div class="swatches"><i style="background:#0b0820"></i><i style="background:#22d3ee"></i><i style="background:#e040fb"></i></div>
+        </div>
+        <a class="open" href="index.html?theme=neon" target="_blank">Open full size ↗</a>
+      </div>
+    </article>
+
+    <article class="option">
+      <div class="frame"><iframe src="index.html?theme=vintage" title="Option 5 preview" loading="lazy"></iframe></div>
+      <div class="info">
+        <div>
+          <h2><span class="num">5</span>Vintage Vinyl</h2>
+          <p>Warm browns and burnt orange, a sunburst background and the logo spinning like a record. Retro 70s album-sleeve style.</p>
+          <div class="swatches"><i style="background:#1c140f"></i><i style="background:#e8833a"></i><i style="background:#f3e6d0"></i></div>
+        </div>
+        <a class="open" href="index.html?theme=vintage" target="_blank">Open full size ↗</a>
+      </div>
+    </article>
+  </div>
+
+  <script>
+    // Scale each full-size preview down to fit its card
+    function fit() {
+      document.querySelectorAll(".frame").forEach((f) => {
+        f.querySelector("iframe").style.transform = `scale(${f.clientWidth / 1300})`;
+      });
+    }
+    addEventListener("resize", fit);
+    fit();
+  </script>
+</body>
+</html>

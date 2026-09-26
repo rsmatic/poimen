@@ -1,0 +1,51 @@
+/* Option 3 — Sanctuary: light, warm and reverent, with elegant serif type */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap");
+
+:root {
+  --bg: #f7f2e8;
+  --bg-2: #efe6d6;
+  --line: #dccfb8;
+  --text: #1f2a3a;
+  --muted: #6d6a64;
+  --accent: #9a6b2f;
+  --accent-rgb: 154, 107, 47;
+  --on-accent: #fff;
+  --shine: #d9ae6f;
+  --body-text: #3b4352;
+  --nav-bg: rgba(247, 242, 232, .85);
+  --nav-bg-solid: rgba(247, 242, 232, .97);
+  --inst-fill: #fffaf0;
+  --key: #ffffff;
+  --radius: 18px;
+  --display: "Cormorant Garamond", Georgia, serif;
+  --display-weight: 600;
+}
+
+.hero h1 { letter-spacing: .12em; font-size: clamp(4rem, 14vw, 9rem); }
+.hero-logo { box-shadow: 0 20px 50px rgba(31, 42, 58, .25); border: 6px solid #fff; }
+@keyframes glow { 0%, 100% { box-shadow: 0 20px 50px rgba(31, 42, 58, .2); } 50% { box-shadow: 0 20px 70px rgba(154, 107, 47, .45); } }
+.tagline { font-family: var(--display); font-style: italic; font-size: clamp(1.3rem, 3vw, 1.6rem); color: var(--body-text); }
+.hero {
+  background:
+    radial-gradient(circle 420px at var(--mx, 50%) var(--my, 35%), rgba(var(--accent-rgb), .12), transparent 70%),
+    linear-gradient(180deg, #fffdf8, var(--bg));
+}
+h2 { letter-spacing: .02em; }
+h2::before { content: "✦"; display: block; font-size: 1rem; color: var(--accent); margin-bottom: .3rem; }
+
+.nav { border-bottom-color: var(--line); }
+.nav-brand { letter-spacing: .15em; }
+.btn { border-color: var(--text); }
+.btn:hover { box-shadow: 0 10px 24px rgba(31, 42, 58, .15); }
+blockquote { background: #fff; border: 1px solid var(--line); font-family: var(--display); font-size: 1.25rem; }
+.greek { color: var(--accent); }
+
+.band, .contact { background: var(--bg-2); }
+.instrument { background: #fffdf8; box-shadow: 0 6px 20px rgba(31, 42, 58, .06); }
+.instrument:hover, .instrument.playing { box-shadow: 0 14px 34px rgba(31, 42, 58, .14); }
+.inst-name { font-weight: 600; font-size: 1.5rem; }
+.inst .wk { stroke: var(--text); }
+.inst .bk { fill: var(--text); stroke: var(--text); }
+.inst .hole { fill: var(--text); }
+.filter.active { background: var(--text); color: var(--bg); }
+.player { box-shadow: 0 20px 50px rgba(31, 42, 58, .2); }

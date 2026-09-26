@@ -1,0 +1,54 @@
+/* Option 4 — Neon Stage: concert lights, cyan-to-magenta glow */
+@import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&display=swap");
+
+:root {
+  --bg: #0b0820;
+  --bg-2: #141033;
+  --line: #2c2658;
+  --text: #f1eefe;
+  --muted: #9d96cb;
+  --accent: #22d3ee;
+  --accent-rgb: 34, 211, 238;
+  --accent-2: #e040fb;
+  --on-accent: #0b0820;
+  --shine: #e040fb;
+  --body-text: #c8c3e8;
+  --nav-bg: rgba(11, 8, 32, .8);
+  --nav-bg-solid: rgba(11, 8, 32, .96);
+  --inst-fill: #1a1540;
+  --key: #f1eefe;
+  --radius: 16px;
+  --display: "Unbounded", sans-serif;
+  --display-weight: 800;
+  --display-case: uppercase;
+}
+
+.hero {
+  background:
+    radial-gradient(circle 420px at var(--mx, 50%) var(--my, 35%), rgba(var(--accent-rgb), .18), transparent 70%),
+    radial-gradient(ellipse 60% 50% at 15% 90%, rgba(224, 64, 251, .22), transparent 70%),
+    radial-gradient(ellipse 60% 50% at 85% 10%, rgba(34, 211, 238, .16), transparent 70%),
+    var(--bg);
+}
+.hero h1 { font-size: clamp(3rem, 12vw, 7.5rem); letter-spacing: -.01em; filter: drop-shadow(0 0 24px rgba(224, 64, 251, .45)); }
+/* Gradient flows across the letters */
+.hero h1 span {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent));
+  background-size: 600% 100%; background-position: calc(var(--i) * 20%) 0;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hero-logo { border: 2px solid var(--accent); box-shadow: 0 0 40px rgba(var(--accent-rgb), .4), 0 0 90px rgba(224, 64, 251, .25); }
+@keyframes glow { 0%, 100% { box-shadow: 0 0 40px rgba(34, 211, 238, .35), 0 0 80px rgba(224, 64, 251, .15); } 50% { box-shadow: 0 0 60px rgba(224, 64, 251, .5), 0 0 120px rgba(34, 211, 238, .25); } }
+
+h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); letter-spacing: 0; }
+.btn.primary { background: linear-gradient(90deg, var(--accent), var(--accent-2)); border-color: transparent; }
+.btn:hover { box-shadow: 0 0 24px rgba(224, 64, 251, .45); }
+.nav-brand { font-size: 1.1rem; letter-spacing: .02em; }
+.nav nav a::after { background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+
+.instrument { background: linear-gradient(160deg, #161039, #0f0b28); }
+.instrument:hover, .instrument.playing { box-shadow: 0 0 30px rgba(var(--accent-rgb), .3), inset 0 0 30px rgba(224, 64, 251, .12); }
+.inst .str, .inst .stick { stroke: var(--accent-2); }
+.inst-name { font-size: .95rem; letter-spacing: .04em; }
+.about-word { border-image: linear-gradient(var(--accent), var(--accent-2)) 1; }
+.greek { background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }

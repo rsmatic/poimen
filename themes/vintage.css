@@ -1,0 +1,47 @@
+/* Option 5 — Vintage Vinyl: warm 70s record-sleeve look */
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=DM+Mono:wght@500&display=swap");
+
+:root {
+  --bg: #1c140f;
+  --bg-2: #271c15;
+  --line: #45332a;
+  --text: #f3e6d0;
+  --muted: #b39f86;
+  --accent: #e8833a;
+  --accent-rgb: 232, 131, 58;
+  --on-accent: #1c140f;
+  --shine: #f6c177;
+  --body-text: #dccbb2;
+  --nav-bg: rgba(28, 20, 15, .88);
+  --nav-bg-solid: rgba(28, 20, 15, .97);
+  --inst-fill: #2d2019;
+  --key: #f3e6d0;
+  --radius: 20px;
+  --display: "Abril Fatface", Georgia, serif;
+}
+
+/* Sunburst behind the hero */
+.hero {
+  background:
+    radial-gradient(circle 420px at var(--mx, 50%) var(--my, 35%), rgba(var(--accent-rgb), .18), transparent 70%),
+    repeating-conic-gradient(from 0deg at 50% 45%, rgba(232, 131, 58, .06) 0 6deg, transparent 6deg 12deg),
+    var(--bg);
+}
+.hero h1 { letter-spacing: .01em; color: var(--text); text-shadow: 4px 4px 0 var(--accent), 8px 8px 0 #b5452a; }
+/* Vinyl record rings around the logo */
+.hero-logo { filter: sepia(.35); border: 0; box-shadow: 0 0 0 10px #111, 0 0 0 12px #2a2a2a, 0 0 0 22px #111, 0 0 0 24px #2a2a2a, 0 0 0 34px #111, 0 18px 50px rgba(0, 0, 0, .6); margin-bottom: 3rem; }
+.hero-logo { animation: logo-in 1s cubic-bezier(.2, .8, .2, 1) both, spin 12s linear 1s infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.eyebrow, .inst-hint, .translit { font-family: "DM Mono", monospace; }
+.tagline { font-style: italic; }
+
+h2 { letter-spacing: .01em; }
+h2::after { content: ""; display: block; width: 60px; height: 4px; margin: .5rem auto 0; background: repeating-linear-gradient(90deg, var(--accent) 0 12px, #b5452a 12px 24px, #f6c177 24px 36px); border-radius: 2px; }
+.about-text h2::after { margin-left: 0; }
+.btn { border-width: 2px; }
+.btn:hover { box-shadow: 4px 4px 0 #b5452a; }
+.nav-brand { font-size: 1.35rem; letter-spacing: .03em; }
+
+blockquote { background: var(--bg-2); border: 1px dashed var(--line); }
+.instrument { background: radial-gradient(circle at 50% 35%, #2e2119, var(--bg)); }
+.inst-name { font-size: 1.25rem; }

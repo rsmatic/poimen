@@ -1,0 +1,30 @@
+/* Classic hero (used by index-classic.html):
+   faded group photo behind the title + faint instruments drifting in the corners */
+
+.hero { padding: 3rem 1rem; }
+.hero-logo { width: 150px; height: 150px; margin-bottom: 2rem; }
+.hero h1 { font-size: clamp(5rem, 18vw, 11rem); }
+
+/* Photo drawn at twice the box height so only the group of people shows, edges faded */
+.hero-photo {
+  height: 70%; aspect-ratio: 2 / 1; opacity: .22;
+  filter: grayscale(1) contrast(1.2) brightness(.9);
+  mix-blend-mode: luminosity;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 45%), linear-gradient(to right, transparent, #000 28%, #000 72%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 45%), linear-gradient(to right, transparent, #000 28%, #000 72%, transparent);
+}
+
+.floaters { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.floater { position: absolute; width: clamp(70px, 11vw, 140px); opacity: .09; animation: drift 14s ease-in-out infinite alternate; animation-delay: calc(var(--i) * -3s); }
+.floater svg { width: 100%; overflow: visible; }
+.floater:nth-child(1) { left: 6%; top: 14%; }
+.floater:nth-child(2) { right: 7%; top: 18%; }
+.floater:nth-child(3) { left: 10%; bottom: 12%; }
+.floater:nth-child(4) { right: 9%; bottom: 20%; }
+.floater:nth-child(5) { right: 30%; bottom: 5%; }
+@keyframes drift {
+  0% { transform: translate(0, 0) rotate(-6deg); }
+  50% { transform: translate(14px, -20px) rotate(4deg); }
+  100% { transform: translate(-10px, 10px) rotate(-2deg); }
+}
+@media (max-width: 560px) { .floater { opacity: .06; } }

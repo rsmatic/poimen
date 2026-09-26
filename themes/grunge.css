@@ -1,0 +1,49 @@
+/* Option 2 — Grunge Rock: raw black & white with blood-red accents */
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
+:root {
+  --bg: #0a0a0a;
+  --bg-2: #151515;
+  --line: #2e2e2e;
+  --text: #f4f4f4;
+  --muted: #9b9b9b;
+  --accent: #e0312b;
+  --accent-rgb: 224, 49, 43;
+  --on-accent: #fff;
+  --shine: #ff9a95;
+  --body-text: #cfcfcf;
+  --nav-bg: rgba(10, 10, 10, .88);
+  --nav-bg-solid: rgba(10, 10, 10, .97);
+  --inst-fill: #1a1111;
+  --key: #f4f4f4;
+  --radius: 0;
+  --pill: 0;
+  --display: "Anton", Impact, sans-serif;
+  --display-case: uppercase;
+}
+
+/* Film grain over the whole page */
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: 100; pointer-events: none; opacity: .09;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.hero h1 { letter-spacing: .02em; text-shadow: 6px 6px 0 rgba(var(--accent-rgb), .85); transform: rotate(-2deg); }
+.hero-logo { border-radius: 0; filter: contrast(1.2); border: 3px solid var(--text); }
+.eyebrow { background: none; color: var(--text); animation: fade-up .8s .3s both; }
+.eyebrow::before, .eyebrow::after { content: " /// "; color: var(--accent); }
+
+h2 { display: inline-block; position: relative; letter-spacing: .03em; }
+h2::after { content: ""; display: block; height: 6px; margin-top: .2rem; background: var(--accent); transform: skewX(-20deg); }
+
+.btn { text-transform: uppercase; letter-spacing: .12em; font-size: .8rem; border-width: 2px; }
+.btn:hover { box-shadow: 4px 4px 0 var(--accent); }
+.nav nav a { text-transform: uppercase; letter-spacing: .1em; font-size: .78rem; }
+.nav-brand img { border-radius: 0; }
+@media (max-width: 560px) { .nav nav a { font-size: .7rem; letter-spacing: .04em; } }
+
+.about-word { border-left-width: 6px; }
+blockquote { border-left: 6px solid var(--accent); }
+.instrument { border-width: 2px; }
+.instrument:hover svg { transform: translateY(-6px) rotate(-8deg) scale(1.06); }
+.inst-name { font-size: 1.3rem; }
