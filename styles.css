@@ -185,6 +185,37 @@ footer { text-align: center; padding: 2rem 1rem; color: var(--muted); font-size:
   .nav-brand span { display: none; }
 }
 
+/* ---------- Concert countdown ---------- */
+
+.concert {
+  position: relative; text-align: center; overflow: hidden;
+  padding: clamp(3.5rem, 9vw, 5.5rem) clamp(1rem, 4vw, 3rem);
+  background:
+    radial-gradient(ellipse 60% 80% at 50% 0%, rgba(var(--accent-rgb), .14), transparent 70%),
+    var(--bg-2);
+  border-block: 1px solid var(--line);
+}
+.eyebrow-static { text-transform: uppercase; letter-spacing: .3em; font-size: .75rem; color: var(--accent); margin-bottom: .6rem; }
+.concert h2 { margin-bottom: .4rem; }
+.concert-date { font-weight: 600; font-size: clamp(1rem, 2.5vw, 1.2rem); color: var(--text); margin-bottom: 2rem; }
+.countdown { display: flex; justify-content: center; gap: clamp(.5rem, 2vw, 1.25rem); margin-bottom: 2rem; }
+.cd-unit {
+  min-width: clamp(70px, 16vw, 130px); padding: clamp(.8rem, 2vw, 1.25rem) .5rem;
+  background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+}
+.cd-num {
+  display: block; font-family: var(--display); font-weight: var(--display-weight);
+  font-size: clamp(2.4rem, 8vw, 4.5rem); line-height: 1; color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.cd-num.tick { animation: tick .45s cubic-bezier(.2, .8, .2, 1); }
+@keyframes tick { from { opacity: .2; transform: translateY(-10px); } to { opacity: 1; transform: none; } }
+.cd-label { display: block; margin-top: .4rem; font-size: .72rem; text-transform: uppercase; letter-spacing: .18em; color: var(--muted); }
+.concert-done { font-family: var(--display); font-size: clamp(1.8rem, 5vw, 2.8rem); color: var(--accent); margin-bottom: 2rem; }
+.concert-note { color: var(--muted); max-width: 34rem; margin: 0 auto 1.5rem; }
+.concert-actions { display: flex; flex-wrap: wrap; gap: .75rem; justify-content: center; }
+
 /* ---------- Listen / Spotify ---------- */
 
 .listen { max-width: 760px; margin: 0 auto; padding: clamp(4rem, 10vw, 6rem) clamp(1rem, 4vw, 3rem); text-align: center; }

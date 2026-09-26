@@ -306,6 +306,62 @@
     });
   });
 
+  // Concert countdown (date comes from the section's data-date attribute)
+  const concert = document.getElementById("concert");
+  if (concert) {
+    const target = new Date(concert.dataset.date);
+    const nums = {};
+    concert.querySelectorAll(".cd-num").forEach((el) => (nums[el.dataset.unit] = el));
+    const done = concert.querySelector(".concert-done");
+    const pad = (n) => String(n).padStart(2, "0");
+
+    const update = () => {
+      const ms = target - Date.now();
+      if (ms <= 0) {
+        const dayAfter = new Date(target.getTime() + 24 * 3600 * 1000);
+        concert.querySelector(".countdown").hidden = true;
+        done.hidden = false;
+        done.textContent = Date.now() < dayAfter ? "It's concert day! See you there." : "Thank you for celebrating with us!";
+        clearInterval(timer);
+        return;
+      }
+      const values = {
+        days: Math.floor(ms / 86400000),
+        hours: pad(Math.floor(ms / 3600000) % 24),
+        minutes: pad(Math.floor(ms / 60000) % 60),
+        seconds: pad(Math.floor(ms / 1000) % 60),
+      };
+      Object.entries(values).forEach(([unit, v]) => {
+        const el = nums[unit];
+        if (el.textContent !== String(v)) {
+          el.textContent = v;
+          el.classList.remove("tick");
+          void el.offsetWidth;
+          el.classList.add("tick");
+        }
+      });
+    };
+    const timer = setInterval(update, 1000);
+    update();
+
+    // "Add to calendar" downloads an all-day event file (works with Google, Apple and Outlook calendars)
+    const ymd = (d) => d.toISOString().slice(0, 10).replace(/-/g, "");
+    const day = new Date(target.getTime() + 8 * 3600 * 1000); // the date in Philippine time
+    const ics = [
+      "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//POIMEN//Concert//EN",
+      "BEGIN:VEVENT",
+      `UID:poimen-concert-${ymd(day)}@rsmatic.github.io`,
+      `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, "").slice(0, 15)}Z`,
+      `DTSTART;VALUE=DATE:${ymd(day)}`,
+      `DTEND;VALUE=DATE:${ymd(new Date(day.getTime() + 86400000))}`,
+      "SUMMARY:POIMEN Concert",
+      "DESCRIPTION:Venue and ticket details: https://www.facebook.com/Poimenph/",
+      "URL:https://rsmatic.github.io/poimen/",
+      "END:VEVENT", "END:VCALENDAR",
+    ].join("\r\n");
+    document.getElementById("add-calendar").href = "data:text/calendar;charset=utf-8," + encodeURIComponent(ics);
+  }
+
   // Nav shadow once the page is scrolled
   const nav = document.querySelector(".nav");
   const onScroll = () => nav.classList.toggle("scrolled", window.scrollY > 20);
