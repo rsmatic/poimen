@@ -1,17 +1,19 @@
-/* Classic hero (used by index-classic.html):
+/* Classic hero (used by index.html):
    faded group photo behind the title + faint instruments drifting in the corners */
 
-.hero { padding: 3rem 1rem; }
-.hero-logo { width: 150px; height: 150px; margin-bottom: 2rem; }
-.hero h1 { font-size: clamp(5rem, 18vw, 11rem); }
+/* Content sits at the top of the hero so the faces in the photo below stay visible */
+.hero { justify-content: flex-start; padding: clamp(1.5rem, 4vh, 3rem) 1rem 3rem; }
+.hero-logo { width: 110px; height: 110px; margin-bottom: 1.25rem; }
+.hero h1 { font-size: clamp(4.5rem, 14vw, 8.5rem); margin: .35rem 0 .75rem; }
+.hero-actions { margin-top: 1.5rem; }
 
 /* Photo drawn at twice the box height so only the group of people shows, edges faded */
 .hero-photo {
-  height: 70%; aspect-ratio: 2 / 1; opacity: .22;
-  filter: grayscale(1) contrast(1.2) brightness(.9);
+  height: 58%; aspect-ratio: 2 / 1; opacity: .32;
+  filter: grayscale(1) contrast(1.2) brightness(.95);
   mix-blend-mode: luminosity;
-  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 45%), linear-gradient(to right, transparent, #000 28%, #000 72%, transparent);
-  mask-image: linear-gradient(to bottom, transparent, #000 45%), linear-gradient(to right, transparent, #000 28%, #000 72%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 28%), linear-gradient(to right, transparent, #000 28%, #000 72%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 28%), linear-gradient(to right, transparent, #000 28%, #000 72%, transparent);
 }
 
 .floaters { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
