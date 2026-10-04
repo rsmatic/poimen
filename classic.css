@@ -7,13 +7,13 @@
 .hero h1 { font-size: clamp(4.5rem, 14vw, 8.5rem); margin: .35rem 0 .75rem; }
 .hero-actions { margin-top: 1.5rem; }
 
-/* Photo drawn at twice the box height so only the group of people shows, edges faded */
+/* Photo fills the box width so only the lower part (the band) shows; edges faded */
 .hero-photo {
   height: 58%; aspect-ratio: 2 / 1; opacity: .32;
   filter: grayscale(1) contrast(1.2) brightness(.95);
   mix-blend-mode: luminosity;
-  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 28%), linear-gradient(to right, transparent, #000 28%, #000 72%, transparent);
-  mask-image: linear-gradient(to bottom, transparent, #000 28%), linear-gradient(to right, transparent, #000 28%, #000 72%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 20%), linear-gradient(to right, transparent, #000 28%, #000 72%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 20%), linear-gradient(to right, transparent, #000 28%, #000 72%, transparent);
 }
 
 .floaters { position: absolute; inset: 0; z-index: -1; pointer-events: none; }

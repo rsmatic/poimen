@@ -30,7 +30,7 @@
         tile.insertAdjacentHTML("beforeend", '<span class="play">▶</span>');
       } else {
         const img = document.createElement("img");
-        img.src = it.src;
+        img.src = it.thumb || it.src; // small preview in the grid, full size in the lightbox
         img.alt = it.caption || "POIMEN photo";
         img.loading = "lazy";
         tile.appendChild(img);

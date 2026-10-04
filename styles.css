@@ -80,6 +80,16 @@ h2 { font-family: var(--display); font-weight: var(--display-weight); text-trans
 blockquote { margin-top: 1.5rem; padding: 1.2rem 1.4rem; background: var(--bg-2); border-radius: 8px; font-style: italic; }
 blockquote cite { display: block; margin-top: .5rem; font-style: normal; color: var(--accent); font-size: .85rem; }
 
+/* Vision, mission and ministry verse span both About columns */
+.about-vm { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 1.25rem; }
+.vm-card { background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(1.25rem, 3vw, 2rem); border-top: 3px solid var(--accent); }
+.vm-card h3 { font-family: var(--display); font-weight: var(--display-weight); text-transform: var(--display-case); font-size: 1.7rem; letter-spacing: .05em; color: var(--accent); margin-bottom: .6rem; }
+.vm-card p { color: var(--body-text); }
+.vm-card strong { color: var(--accent); font-weight: 800; }
+.about blockquote.verse { grid-column: 1 / -1; margin: 0; text-align: center; font-size: clamp(1.05rem, 2.4vw, 1.35rem); line-height: 1.7; padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 5vw, 4rem); }
+.verse-label { display: block; font-style: normal; text-transform: uppercase; letter-spacing: .25em; font-size: .72rem; color: var(--accent); margin-bottom: .9rem; }
+.verse cite { margin-top: 1rem; font-size: .95rem; }
+
 /* Gallery */
 .gallery-section { max-width: 1200px; margin: 0 auto; padding: clamp(3rem, 8vw, 6rem) clamp(1rem, 4vw, 3rem); text-align: center; }
 .filters { display: inline-flex; gap: .25rem; padding: .25rem; background: var(--bg-2); border-radius: var(--pill); margin-bottom: 2rem; }
@@ -87,7 +97,7 @@ blockquote cite { display: block; margin-top: .5rem; font-style: normal; color: 
 .filter.active { background: var(--text); color: var(--bg); }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: .75rem; }
 .tile { position: relative; aspect-ratio: 1; overflow: hidden; border-radius: 6px; background: var(--bg-2); cursor: pointer; border: 0; padding: 0; }
-.tile img, .tile video { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+.tile img, .tile video { width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; transition: transform .4s; }
 .tile:hover img, .tile:hover video { transform: scale(1.05); }
 .tile .play { position: absolute; inset: 0; display: grid; place-items: center; font-size: 2.5rem; color: #fff; background: rgba(0, 0, 0, .25); pointer-events: none; }
 .tile .cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 1.5rem .8rem .6rem; text-align: left; font-size: .85rem; color: #fff; background: linear-gradient(transparent, rgba(0, 0, 0, .75)); opacity: 0; transition: opacity .25s; }
@@ -244,6 +254,10 @@ footer { text-align: center; padding: 2rem 1rem; color: var(--muted); font-size:
 .btn.youtube:hover { box-shadow: 0 8px 24px rgba(255, 0, 51, .3); filter: brightness(1.08); }
 
 .contact-actions { display: flex; flex-wrap: wrap; gap: .75rem; justify-content: center; }
+.contact-info { display: flex; flex-wrap: wrap; gap: .75rem 2rem; justify-content: center; margin-bottom: 1.75rem; }
+.contact-item { display: inline-flex; align-items: center; gap: .6rem; text-decoration: none; font-weight: 600; font-size: clamp(1rem, 2.4vw, 1.15rem); color: var(--text); transition: color .2s; }
+.contact-item svg { width: 22px; height: 22px; color: var(--accent); flex: none; }
+.contact-item:hover { color: var(--accent); }
 .btn.facebook { display: inline-flex; align-items: center; gap: .6rem; background: #1877f2; border-color: #1877f2; color: #fff; }
 .btn.facebook svg { width: 20px; height: 20px; }
 .btn.facebook:hover { box-shadow: 0 8px 24px rgba(24, 119, 242, .35); filter: brightness(1.08); }
@@ -254,7 +268,7 @@ footer { text-align: center; padding: 2rem 1rem; color: var(--muted); font-size:
    of people) shows and the printed title stays out of view. Edges fade out. */
 .photo-bg {
   position: absolute; left: 50%; bottom: 0; aspect-ratio: 2 / 1; transform: translateX(-50%); z-index: -2; pointer-events: none;
-  background: url("media/band-album.jpg") center bottom / 100% auto no-repeat;
+  background: url("media/shoot/shoot-17.jpg") center bottom / 100% auto no-repeat;
   filter: grayscale(1) contrast(1.2) brightness(.9);
   mix-blend-mode: luminosity;
   -webkit-mask-image: linear-gradient(to bottom, transparent, #000 45%), linear-gradient(to right, transparent, #000 28%, #000 72%, transparent);
@@ -264,7 +278,7 @@ footer { text-align: center; padding: 2rem 1rem; color: var(--muted); font-size:
 }
 /* Hero: shows the group from just above their heads down, clearly (faces visible) */
 .hero-photo {
-  height: var(--photo-h); aspect-ratio: 2.5 / 1; opacity: .6;
+  height: var(--photo-h); aspect-ratio: 2.2 / 1; opacity: .6;
   filter: grayscale(.5) contrast(1.1) brightness(.82);
   mix-blend-mode: normal;
   -webkit-mask-image: linear-gradient(to bottom, transparent, #000 15%, #000 85%, transparent), linear-gradient(to right, transparent, #000 20%, #000 80%, transparent);
